@@ -15,9 +15,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Markdownable::VERSION
 
-  gem.add_development_dependency "rails"
+  gem.add_development_dependency "rails", '~> 3.2.0'
   gem.add_development_dependency "rspec-rails"
   gem.add_development_dependency "sqlite3"
 
-  gem.add_dependency 'redcarpet'
+  gem.add_dependency 'redcarpet', "~> 2.1"
 end
