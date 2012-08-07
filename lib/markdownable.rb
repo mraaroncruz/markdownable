@@ -9,7 +9,8 @@ module Markdownable
         markdown = Redcarpet::Markdown.new(renderer,
                                      :autolink => true,
                                      :lax_html_blocks => true)
-        markdown.render(self.send field)
+        text = self.send(field)
+        markdown.render(text) unless text.nil?
       end
     end
   end
