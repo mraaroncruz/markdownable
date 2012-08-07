@@ -19,29 +19,34 @@ Or install it yourself as:
 
 ## Usage
 With a Plain Old Ruby Object®
-    require 'markdownable'
 
-    class Article
-      include Markdownable
-      attr_accessor :title, :author, :body
-      markdownable :body
-    end
+```ruby
+require 'markdownable'
 
-    article = Article.new
-    article.body = "## Hello world"
-    # adds a `_markdown` field to any fields you chose above
-    puts article.body_markdown #=> "<h2>Hello world</h2>"
+class Article
+  include Markdownable
+  attr_accessor :title, :author, :body
+  markdownable :body
+end
+
+article = Article.new
+article.body = "## Hello world"
+# adds a `_markdown` field to any fields you chose above
+puts article.body_markdown #=> "<h2>Hello world</h2>"
+```
 
 With ActiveRecord you don't need to include the module
 
-    class Post < ActiveRecord::Base
-      markdownable :text
-    end
+```ruby
+class Post < ActiveRecord::Base
+  markdownable :text
+end
 
-    article = Article.new(:body => "## Hello World")
-    article.save
-    # adds a `_markdown` field to any fields you chose above
-    puts article.text_markdown #=> "<h2>Hello world</h2>"
+article = Article.new(:body => "## Hello World")
+article.save
+# adds a `_markdown` field to any fields you chose above
+puts article.text_markdown #=> "<h2>Hello world</h2>"
+```
 
 ## Contributing
 
