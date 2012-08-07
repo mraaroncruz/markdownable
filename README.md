@@ -1,6 +1,7 @@
 # Markdownable
 
-TODO: Write a gem description
+Adds an attribute to your class that is a markdown representation of another attribute.
+Includes nice syntax for ActiveRecord
 
 ## Installation
 
@@ -18,7 +19,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'markdownable'
+
+    class Article
+      include Markdownable
+      attr_accessor :title, :author, :body
+      markdownable :body
+    end
+
+    article = Article.new
+    article.body = "## Hello world"
+    puts article.body_markdown #=> "<h2>Hello world</h2>"
+
+With ActiveRecord you don't need to include the module
+    class Article < ActiveRecord::Base
+      markdownable :body
+    end
+
+    article = Article.new(:body => "## Hello World")
+    article.save
+    puts article.body_markdown #=> "<h2>Hello world</h2>"
 
 ## Contributing
 
