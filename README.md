@@ -1,7 +1,7 @@
 # Markdownable
 
 Adds an attribute to your class that is a markdown representation of another attribute.
-Includes nice syntax for ActiveRecord
+Includes auto-include for ActiveRecord
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
     $ gem install markdownable
 
 ## Usage
-
+With a Plain Old Ruby Object®
     require 'markdownable'
 
     class Article
@@ -29,16 +29,19 @@ Or install it yourself as:
 
     article = Article.new
     article.body = "## Hello world"
+    # adds a `_markdown` field to any fields you chose above
     puts article.body_markdown #=> "<h2>Hello world</h2>"
 
 With ActiveRecord you don't need to include the module
-    class Article < ActiveRecord::Base
-      markdownable :body
+
+    class Post < ActiveRecord::Base
+      markdownable :text
     end
 
     article = Article.new(:body => "## Hello World")
     article.save
-    puts article.body_markdown #=> "<h2>Hello world</h2>"
+    # adds a `_markdown` field to any fields you chose above
+    puts article.text_markdown #=> "<h2>Hello world</h2>"
 
 ## Contributing
 
