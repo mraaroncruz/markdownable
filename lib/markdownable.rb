@@ -1,4 +1,5 @@
-require "markdownable/version"
+require 'redcarpet'
+require 'markdownable/version'
 
 module Markdownable
   module ClassMethods
