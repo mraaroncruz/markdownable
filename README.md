@@ -1,5 +1,5 @@
 # Markdownable
-
+![codeship](https://www.codeship.io/projects/463cfc50-e66b-0130-e1e7-62a1cf2e5116/status)
 Adds an attribute to your class that is a markdown representation of another attribute.
 Includes auto-include for ActiveRecord
 
